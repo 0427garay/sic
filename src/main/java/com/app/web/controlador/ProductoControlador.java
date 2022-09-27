@@ -1,6 +1,7 @@
 package com.app.web.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.app.web.entidad.Producto;
 import com.app.web.servicio.ProductoServicio;
 
+ @Controller
 public class ProductoControlador {
     
 	@Autowired
 	private ProductoServicio servicio;
+	
 	@GetMapping({"/productos","/"})
 	public String listarProductos(Model  modelo) {
 		modelo.addAttribute("productos", servicio.listarTodosLosProductos());
@@ -57,3 +60,4 @@ public class ProductoControlador {
 	}
  
 }
+
